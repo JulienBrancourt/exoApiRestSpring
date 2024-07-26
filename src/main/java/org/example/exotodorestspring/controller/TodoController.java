@@ -21,7 +21,7 @@ public class TodoController {
         return ResponseEntity.ok(todoService.findAll());
     }
 
-    @PostMapping("/register")
+    @PostMapping("/")
     public ResponseEntity<Todo> register(@RequestBody Todo todo) {
         Todo savedTodo = todoService.save(todo);
         return ResponseEntity.ok(savedTodo);
@@ -32,7 +32,7 @@ public class TodoController {
         return ResponseEntity.ok(todoService.findById(id));
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") int id, @RequestBody Todo todo) {
         todoService.delete(id);
         return ResponseEntity.noContent().build();
